@@ -1,0 +1,37 @@
+import discord
+import os
+import random
+from discord.ext import commands
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='+', intents=intents)
+print(os.listdir('image'))
+@bot.event
+async def on_ready():
+    print(f'Se ha iniciado sesión como {bot.user}')
+@bot.command()
+async def hola(ctx): 
+    await ctx.send(f'Hola, soy un bot {bot.user}!')
+
+@bot.command()
+async def mem(ctx):
+    Abc = random.choice(os.listdir('image'))
+    with open(f'image/{Abc}', 'rb') as f:
+            picture = discord.File(f)
+    # A continuación, podemos enviar este archivo como parámetro.
+    await ctx.send(file=picture)
+
+def get_duck_image_url():    
+    url = 'https://random-d.uk/api/random'
+    res = requests.get(url)
+    data = res.json()
+    return data['url']
+
+
+@bot.command('duck')
+async def duck(ctx):
+    '''Una vez que llamamos al comando duck, 
+    el programa llama a la función get_duck_image_url'''
+    image_url = get_duck_image_url()
+    await ctx.send(image_url)
+bot.run("MTI4Mjg4MDE5NDc4MDA3NDAzNQ.GM5R0u.4e9I8w0J4lzwlKftQ7DA5E3_X53rgbWdUIngvw")
