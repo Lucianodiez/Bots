@@ -26,4 +26,4 @@ async def on_message(message):
     else:
         await message.channel.send(message.content)
 
-client.run("MTI4Mjg4MDE5NDc4MDA3NDAzNQ.GM5R0u.4e9I8w0J4lzwlKftQ7DA5E3_X53rgbWdUIngvw")
+client.run()
