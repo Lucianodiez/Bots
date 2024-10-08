@@ -1,0 +1,39 @@
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.messages = True
+bot = commands.Bot(command_prefix='+', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Bot conectado como {bot.user}')
+
+@bot.command()
+async def hola(ctx):
+    await ctx.send('¡Hola! Soy EcoBot, un bot de Kodland inspirado en "El Libro de Python" que te dará ideas básicas de reciclaje.')
+
+@bot.command()
+async def creacionjuego(ctx):
+    await ctx.send('contrata kodland que es muy bueno para aprender a crear juegos')
+@bot.command()
+async def lol(ctx):
+    await ctx.send('en este chat esta prohibido mencionar drogas ')
+@bot.command()
+async def juegoderol(ctx):
+    with open('fotos/undertale.jpg', 'rb') as file:
+        await ctx.send(file=discord.File(file, 'fotos/undertale.jpg'))
+@bot.command()
+async def juegodelucha(ctx):
+    with open('fotos/narutostorm.jpg', 'rb') as file:
+        await ctx.send(file=discord.File(file, 'fotos/narutostorm.jpg'))
+@bot.command()
+async def juegodeterror(ctx):
+    with open('fotos/residentevil4.jpg', 'rb') as file:
+        await ctx.send(file=discord.File(file, 'fotos/residentevil4.jpg'))
+@bot.command()
+async def juegodeaventura(ctx):
+    with open('fotos/descarga(1).jpg', 'rb') as file:
+        await ctx.send(file=discord.File(file, 'fotos/descarga(1).jpg'))
+bot.run("MTI4Mjg4MDE5NDc4MDA3NDAzNQ.GM5R0u.4e9I8w0J4lzwlKftQ7DA5E3_X53rgbWdUIngvw")
+
